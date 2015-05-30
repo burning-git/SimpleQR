@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "UserCode.h"
 @interface ViewController ()
 
 @end
@@ -24,4 +24,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)QR:(UIButton *)sender {
+    
+    [[UserCode shareCode] popCodeViewBlcok:^(id info) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.qrEnd.text=[NSString stringWithFormat:@"获取到的数据:%@",info];
+        });
+        NSLog(@"获取到的数据:%@",info);
+    } andInVC:self];
+}
 @end

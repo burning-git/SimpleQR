@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)QR:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *qrEnd;
 @end
 
